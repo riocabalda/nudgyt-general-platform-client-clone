@@ -2,15 +2,19 @@
 
 import React, { useEffect } from 'react'
 import { Simulation } from '@/app/(shared)/services/learner/simulationService'
+import io from 'socket.io-client'
 import RightSidebar from './RightSidebar'
 import SimulationE3dsIframe from './SimulationE3dsIframe'
-import NavigationPanel from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/components/NavigationPanel'
+import serverConfig from '@/app/(shared)/config/serverConfig'
+import useOrganization from '@/app/(shared)/hooks/useOrganization'
 import authTokenService from '@/app/(shared)/services/authTokenService'
 import useSimulationFormStore from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/useSimulationFormStore'
-import serverConfig from '@/app/(shared)/config/serverConfig'
-import io from 'socket.io-client'
+import NavigationPanel from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/components/NavigationPanel'
+import simulationService from '@/app/(shared)/services/admin/simulationService'
+
 function SimulationActive({ simulation }: { simulation: Simulation }) {
   const accessToken = authTokenService.getAccessToken()
+  const { orgSlug } = useOrganization()
 
   const { resetFormState } = useSimulationFormStore()
 
@@ -23,11 +27,28 @@ function SimulationActive({ simulation }: { simulation: Simulation }) {
       }
     })
 
+    // Set up 5-minute interval to ping the server and prevent sleep
+    const intervalId = setInterval(
+      async () => {
+        try {
+          const response = await simulationService.pingSimulation(orgSlug)
+          console.log(
+            `Server ping successful: ${response.data.message} at ${response.data.timestamp}`
+          )
+        } catch (error) {
+          console.error('Failed to ping server:', error)
+        }
+      },
+      5 * 60 * 1000
+    ) // 5 minutes in milliseconds
+
     return () => {
       socket.disconnect()
       resetFormState()
+      clearInterval(intervalId)
     }
   }, [])
+
   return (
     <section className='lg:p-6 lg:pb-0'>
       <div className='relative flex flex-col lg:flex-row lg:gap-6 overflow-hidden lg:max-w-[1920px] lg:mx-auto lg:px-0 '>

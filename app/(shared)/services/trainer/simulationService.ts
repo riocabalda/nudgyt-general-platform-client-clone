@@ -125,6 +125,9 @@ const getPreviousAttemptSimulations = (orgSlug: string, queryString: string) =>
     >
   >(`/${orgSlug}/trainer/simulations/previous-attempts/?${queryString}`)
 
+const pingSimulation = (orgSlug: string) =>
+  apiClient.get(`/${orgSlug}/trainer/simulations/ping`)
+
 const simulationService = {
   startSimulationTrial,
   pauseSimulationTrial,
@@ -137,7 +140,8 @@ const simulationService = {
   getSimulationSoftSkills,
   getSurveyAverage,
   updateFormAnswers,
-  getPreviousAttemptSimulations
+  getPreviousAttemptSimulations,
+  pingSimulation
 }
 
 export default simulationService
