@@ -1,0 +1,15 @@
+/* Custom scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+    @apply w-1 scroll-smooth;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent mx-2;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-200 rounded-[8px];
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-300;
+  }
+  /* End */
+  

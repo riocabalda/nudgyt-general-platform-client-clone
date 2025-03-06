@@ -1,0 +1,19 @@
+/** 
+ * Renamed from `scrollbar-thin` as it conflicts with `tailwind-scrollbar`
+ */
+
+.custom-scrollbar-thin::-webkit-scrollbar {
+  @apply w-1 scroll-smooth;
+}
+
+.custom-scrollbar-thin::-webkit-scrollbar-track {
+  @apply bg-transparent mx-2;
+}
+
+.custom-scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-[8px];
+}
+
+.custom-scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-300;
+}

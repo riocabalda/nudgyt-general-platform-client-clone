@@ -1,0 +1,13 @@
+/**
+ * Specify default colors and rounding for custom scrollbars
+ * These are based on shadcn's ScrollArea styles
+ * 
+ * To use a custom scrollbar, simply add `scrollbar` or `scrollbar-thin` to the element.
+ * The custom scrollbar will automatically reference these styles.
+ * 
+ * https://adoxography.github.io/tailwind-scrollbar/examples#global-scrollbar-colours
+ */
+body * {
+  @apply scrollbar-thumb-border/60 hover:scrollbar-thumb-border/80 active:scrollbar-thumb-border;
+  @apply scrollbar-track-transparent scrollbar-thumb-rounded-full;
+}

@@ -1,0 +1,50 @@
+{
+  "message": "User logged in successfully.",
+  "data": {
+    "user": {
+      "_id": "0123456789abcdefghijklmn",
+      "organizations": [
+        {
+          "_id": "0123456789abcdefghijklm0",
+          "organization": {
+            "_id": "0123456789abcdefghijklm0",
+            "name": "[SYSTEM]",
+            "slug": "system"
+          },
+          "role": "Super Admin",
+          "is_accepted": true,
+          "is_owner": false,
+          "created_at": "1970-01-01T00:00:00.000Z",
+          "updated_at": "1970-01-01T00:00:00.000Z"
+        },
+        {
+          "_id": "0123456789abcdefghijklm1",
+          "organization": {
+            "_id": "0123456789abcdefghijklm1",
+            "name": "[PUBLIC]",
+            "slug": "public"
+          },
+          "role": "Admin",
+          "is_accepted": true,
+          "is_owner": false,
+          "created_at": "1970-01-01T00:00:00.000Z",
+          "updated_at": "1970-01-01T00:00:00.000Z"
+        }
+      ],
+      "__v": 0,
+      "approved_at": "1970-01-01T00:00:00.000Z",
+      "archived_at": null,
+      "blocked_at": null,
+      "created_at": "1970-01-01T00:00:00.000Z",
+      "deleted_at": null,
+      "email": "superadmin@user.com",
+      "email_verified_at": "1970-01-01T00:00:00.000Z",
+      "full_name": "Sample User",
+      "is_guest": false,
+      "last_logged_in_at": "1970-01-01T00:00:00.000Z",
+      "updated_at": "1970-01-01T00:00:00.000Z",
+      "verification_token": null
+    },
+    "token": "SAMPLE_ACCESS_TOKEN"
+  }
+}

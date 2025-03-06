@@ -1,0 +1,37 @@
+{
+  "message": "User logged in successfully.",
+  "data": {
+    "user": {
+      "_id": "0123456789abcdefghijklmn",
+      "organizations": [
+        {
+          "organization": {
+            "_id": "0123456789abcdefghijklm2",
+            "name": "Org 1",
+            "slug": "org-1"
+          },
+          "role": "Admin",
+          "is_accepted": true,
+          "is_owner": false,
+          "_id": "0123456789abcdefghijklm0",
+          "created_at": "1970-01-01T00:00:00.000Z",
+          "updated_at": "1970-01-01T00:00:00.000Z"
+        }
+      ],
+      "__v": 0,
+      "approved_at": "1970-01-01T00:00:00.000Z",
+      "archived_at": null,
+      "blocked_at": null,
+      "created_at": "1970-01-01T00:00:00.000Z",
+      "deleted_at": null,
+      "email": "admin@org.com",
+      "email_verified_at": "1970-01-01T00:00:00.000Z",
+      "full_name": "Org Admin",
+      "is_guest": false,
+      "last_logged_in_at": "1970-01-01T00:00:00.000Z",
+      "updated_at": "1970-01-01T00:00:00.000Z",
+      "verification_token": null
+    },
+    "token": "SAMPLE_ACCESS_TOKEN"
+  }
+}

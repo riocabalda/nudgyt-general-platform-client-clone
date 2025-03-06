@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "_id": "67402939753b8ab849cb7778",
+      "title": "Ah Ma",
+      "description": "Ah Ma training her helper",
+      "is_published": true
+    },
+    {
+      "_id": "6740291d753b8ab849cb76ef",
+      "title": "Hi Grandma!",
+      "description": "Your goal is to interact with grandma to be patient and polite with her.",
+      "is_published": true
+    },
+    {
+      "_id": "67402901753b8ab849cb76a0",
+      "title": "PoC Mentoring session",
+      "description": "Mentor share sustainable manufacturing best practice and industry validation to companies.",
+      "is_published": true
+    }
+  ]
+}

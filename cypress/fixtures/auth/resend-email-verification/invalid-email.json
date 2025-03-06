@@ -1,0 +1,16 @@
+[
+  {
+    "type": "Body",
+    "errors": {
+      "issues": [
+        {
+          "validation": "email",
+          "code": "invalid_string",
+          "message": "Invalid email",
+          "path": ["email"]
+        }
+      ],
+      "name": "ZodError"
+    }
+  }
+]

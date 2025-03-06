@@ -1,0 +1,41 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Slick Slider */
+.slick-arrow {
+  @apply !hidden;
+}
+/* End */
+
+/* Form Section */
+button[role='combobox'] > span {
+  @apply text-sm;
+}
+div[role='option'] > span:first-child > span {
+  @apply hidden;
+}
+/* End */
+
+/* Simulation Stream */
+#videoPlayOverlay {
+  @apply absolute top-0 left-0 w-full h-full bg-black cursor-pointer z-[2];
+}
+#videoPlayOverlay > #playButton {
+  @apply size-[50px] lg:size-[100px] object-contain absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+/* End */
+
+/* Form select */
+/* Prevent Select svg from shrinking */
+button[role='combobox'] > svg {
+  @apply flex-shrink-0;
+}
+/* End */

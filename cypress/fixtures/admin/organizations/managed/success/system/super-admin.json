@@ -1,0 +1,15 @@
+{
+  "message": "OK",
+  "data": [
+    {
+      "_id": "0123456789abcdefghijklm0",
+      "name": "[SYSTEM]",
+      "role": "Super Admin"
+    },
+    {
+      "_id": "0123456789abcdefghijklm1",
+      "name": "[PUBLIC]",
+      "role": "Admin"
+    }
+  ]
+}

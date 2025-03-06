@@ -1,0 +1,248 @@
+{
+  "data": [
+    {
+      "_id": "6740278a753b8ab849cb7038",
+      "title": "Comprehensive IT Support Services",
+      "description": "Offering full-spectrum IT support, from network maintenance to troubleshooting, ensuring smooth and reliable operation for your business's tech infrastructure.",
+      "is_published": true,
+      "current_step": 1,
+      "last_attempt": "2024-11-25T07:20:50.006Z",
+      "creator": {
+        "_id": "6740242279a1a64176f1ca51",
+        "email": "peacebellsppl@gmail.com",
+        "fullname": "SP",
+        "organization": "SIPG",
+        "user_type": "Trainer"
+      },
+      "simulation_type": {
+        "_id": "66fdfaf23d6b335b471683aa",
+        "name": "Basic",
+        "type": "LTCF",
+        "description": "This is a basic simulation with no frills for creating any case you wish.",
+        "__v": 0,
+        "created_at": "2024-10-03T02:01:22.699Z",
+        "updated_at": "2024-10-03T02:01:22.699Z"
+      },
+      "character": {
+        "_id": "670e09f803d20e64ddcc84f4",
+        "avatar": "/images/04 - Emilio-1728973304655.png",
+        "audio": "/audios/04 - Emilio-1728973304656.mp3",
+        "character_id": "04",
+        "name": "Emilio",
+        "birthday": "1960-10-10T00:00:00.000Z",
+        "gender": "Male",
+        "languages": ["English", "Tamil"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "details": "",
+        "personality_id": "ce4c91f0-18c2-11ef-afcf-42010a7be00e",
+        "personalities": [
+          {
+            "difficulty": "1",
+            "openess": "2",
+            "meticulousness": "2",
+            "extraversion": "3",
+            "agreeableness": "2",
+            "sensitivity": "2",
+            "_id": "670e09f803d20e64ddcc84f5"
+          }
+        ],
+        "deleted_at": null,
+        "created_at": "2024-10-15T06:21:44.660Z",
+        "updated_at": "2024-10-15T06:21:44.660Z",
+        "__v": 0,
+        "voice_type": "RyanMultilingualNeural"
+      },
+      "environment": {
+        "_id": "66fe0c777d9353b0bc2ab654",
+        "image": "/images/simple-active-aging-center.jpeg",
+        "simulation_link": "https://connector.eagle3dstreaming.com/v5/nudgyt03/CommunityCenter_v2/default",
+        "location": "Simple, Active Aging Center",
+        "description": "<p>Active Ageing Centre (AAC) is a drop-in social recreational center that extends support to seniors living nearby in the community. It is a go-to point for seniors to have the opportunity to build strong social connections, take part in recreational activities, and contribute to the community as they wish.</p>",
+        "__v": 0,
+        "created_at": "2024-10-03T03:16:07.294Z",
+        "updated_at": "2024-10-03T03:16:07.294Z"
+      },
+      "difficulty": {},
+      "character_data": {},
+      "form_questions": [],
+      "simulations": [
+        {
+          "created_at": "2024-11-23T06:08:51.437+00:00",
+          "updated_at": "2024-11-23T06:08:51.437+00:00"
+        },
+        {
+          "created_at": "2024-11-23T06:08:40.437+00:00",
+          "updated_at": "2024-11-23T06:08:40.437+00:00"
+        },
+        {
+          "created_at": "2024-11-23T06:08:30.437+00:00",
+          "updated_at": "2024-11-23T06:08:30.437+00:00"
+        },
+        {
+          "created_at": "2024-11-23T06:08:20.437+00:00",
+          "updated_at": "2024-11-23T06:08:20.437+00:00"
+        }
+      ],
+      "deleted_at": null,
+      "created_at": "2024-11-23T06:41:14.399Z",
+      "updated_at": "2024-11-25T07:20:50.006Z",
+      "__v": 0
+    },
+    {
+      "_id": "67402789753b8ab849cb7018",
+      "title": "Personalized Consulting Services",
+      "description": "Tailored consulting solutions to help you navigate business challenges, optimize processes, and drive growth through expert advice and strategic planning.",
+      "is_published": true,
+      "current_step": 1,
+      "last_attempt": null,
+      "creator": {
+        "_id": "674023b879a1a64176f1ca4c",
+        "email": "kartini.ishak@gmail.com",
+        "fullname": "Kartini Ishak",
+        "organization": "SIPG",
+        "user_type": "Trainer"
+      },
+      "simulation_type": {
+        "_id": "66fdfaf23d6b335b471683aa",
+        "name": "Basic",
+        "type": "LTCF",
+        "description": "This is a basic simulation with no frills for creating any case you wish.",
+        "__v": 0,
+        "created_at": "2024-10-03T02:01:22.699Z",
+        "updated_at": "2024-10-03T02:01:22.699Z"
+      },
+      "character": {
+        "_id": "670e0a2903d20e64ddcc84f8",
+        "avatar": "/images/05 - Katherine-1728973353466.png",
+        "audio": "/audios/05 - Katherine-1728973353468.mp3",
+        "character_id": "05",
+        "name": "Katherine",
+        "birthday": "1960-10-10T00:00:00.000Z",
+        "gender": "Female",
+        "languages": ["English"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "details": "",
+        "personality_id": "ce4c91f0-18c2-11ef-afcf-42010a7be00e",
+        "personalities": [
+          {
+            "difficulty": "1",
+            "openess": "2",
+            "meticulousness": "2",
+            "extraversion": "3",
+            "agreeableness": "2",
+            "sensitivity": "2",
+            "_id": "670e0a2903d20e64ddcc84f9"
+          }
+        ],
+        "deleted_at": null,
+        "created_at": "2024-10-15T06:22:33.470Z",
+        "updated_at": "2024-10-15T06:22:33.470Z",
+        "__v": 0,
+        "voice_type": "JennyMultilingualV2Neural"
+      },
+      "environment": {
+        "_id": "66fe0c777d9353b0bc2ab654",
+        "image": "/images/simple-active-aging-center.jpeg",
+        "simulation_link": "https://connector.eagle3dstreaming.com/v5/nudgyt03/CommunityCenter_v2/default",
+        "location": "Simple, Active Aging Center",
+        "description": "<p>Active Ageing Centre (AAC) is a drop-in social recreational center that extends support to seniors living nearby in the community. It is a go-to point for seniors to have the opportunity to build strong social connections, take part in recreational activities, and contribute to the community as they wish.</p>",
+        "__v": 0,
+        "created_at": "2024-10-03T03:16:07.294Z",
+        "updated_at": "2024-10-03T03:16:07.294Z"
+      },
+      "difficulty": {},
+      "character_data": {},
+      "form_questions": [],
+      "simulations": [
+        {
+          "created_at": "2024-11-22T06:08:51.437+00:00",
+          "updated_at": "2024-11-22T06:08:51.437+00:00"
+        }
+      ],
+      "deleted_at": null,
+      "created_at": "2024-11-22T06:41:13.224Z",
+      "updated_at": "2024-11-22T06:41:18.882Z",
+      "__v": 0
+    },
+    {
+      "_id": "67402775753b8ab849cb6fb1",
+      "title": "Cloud Hosting and Management",
+      "description": "Secure and scalable cloud hosting services with 24/7 monitoring, designed to enhance performance and flexibility for your organization's digital presence.",
+      "is_published": false,
+      "current_step": 5,
+      "last_attempt": "2024-11-22T06:41:18.882Z",
+      "creator": {
+        "_id": "670f7b1ac73fc737579a181a",
+        "email": "shaoyong.chew@nudgyt.com",
+        "fullname": "Shao",
+        "organization": null,
+        "user_type": "Admin"
+      },
+      "simulation_type": {
+        "_id": "66fdfaf23d6b335b471683aa",
+        "name": "Basic",
+        "type": "LTCF",
+        "description": "This is a basic simulation with no frills for creating any case you wish.",
+        "__v": 0,
+        "created_at": "2024-10-03T02:01:22.699Z",
+        "updated_at": "2024-10-03T02:01:22.699Z"
+      },
+      "character": {
+        "_id": "670e09f803d20e64ddcc84f4",
+        "avatar": "/images/04 - Emilio-1728973304655.png",
+        "audio": "/audios/04 - Emilio-1728973304656.mp3",
+        "character_id": "04",
+        "name": "Emilio",
+        "birthday": "1960-10-10T00:00:00.000Z",
+        "gender": "Male",
+        "languages": ["English", "Tamil"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "details": "",
+        "personality_id": "ce4c91f0-18c2-11ef-afcf-42010a7be00e",
+        "personalities": [
+          {
+            "difficulty": "1",
+            "openess": "2",
+            "meticulousness": "2",
+            "extraversion": "3",
+            "agreeableness": "2",
+            "sensitivity": "2",
+            "_id": "670e09f803d20e64ddcc84f5"
+          }
+        ],
+        "deleted_at": null,
+        "created_at": "2024-10-15T06:21:44.660Z",
+        "updated_at": "2024-10-15T06:21:44.660Z",
+        "__v": 0,
+        "voice_type": "RyanMultilingualNeural"
+      },
+      "environment": {
+        "_id": "670ccd8e98a1fbbee6c60966",
+        "image": "/images/Boardroom-1728972621220.jpeg",
+        "simulation_link": "https://connector.eagle3dstreaming.com/v5/nudgyt03/BoardRoom_v4/default",
+        "location": "Boardroom",
+        "description": "A modern boardroom is a sleek, professional space designed for collaboration and decision-making. It features a large, central table surrounded by ergonomic chairs, with natural light and strategic lighting are also common to enhance the space's energy and productivity. This is the place where business decisions are made.",
+        "created_at": "2024-10-14T07:51:42.108Z",
+        "updated_at": "2024-10-15T06:10:21.227Z",
+        "__v": 0
+      },
+      "difficulty": {},
+      "character_data": {},
+      "form_questions": [],
+      "simulations": [
+        {
+          "created_at": "2024-11-24T06:10:51.437+00:00",
+          "updated_at": "2024-11-24T06:10:51.437+00:00"
+        },
+        {
+          "created_at": "2024-11-24T06:09:30.437+00:00",
+          "updated_at": "2024-11-24T06:09:30.437+00:00"
+        }
+      ],
+      "deleted_at": null,
+      "created_at": "2024-11-24T06:40:53.629Z",
+      "updated_at": "2024-11-24T06:40:55.069Z",
+      "__v": 0
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Slick Slider */
+.slick-list,
+.slick-slide {
+  @apply !flex;
+}
+
+.slick-track {
+  @apply !flex !m-0;
+}
+
+.slick-slide {
+  @apply lg:!max-w-[442px];
+}
+
+.slick-slide > div {
+  @apply flex-1;
+}
+
+.slick-slide > div > div {
+  @apply h-full;
+}
+
+.slick-slide:not(:last-child) {
+  @apply mr-4 lg:mr-[30px];
+}
+
+.slick-arrow {
+  @apply !hidden;
+}
+/* End */
+
+.custom-scroll-gutter {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}

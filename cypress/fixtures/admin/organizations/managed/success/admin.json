@@ -1,0 +1,10 @@
+{
+  "message": "OK",
+  "data": [
+    {
+      "_id": "0123456789abcdefghijklm1",
+      "name": "[PUBLIC]",
+      "role": "Admin"
+    }
+  ]
+}

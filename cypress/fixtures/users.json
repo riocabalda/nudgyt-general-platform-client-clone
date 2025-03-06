@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "_id": "6746c20bfbbfd4112172df6c",
+      "is_guest": false,
+      "email": "a@a.com",
+      "__v": 0,
+      "approved_at": "2024-11-27T06:35:23.649Z",
+      "archived_at": null,
+      "blocked_at": null,
+      "created_at": "2024-11-27T06:54:03.425Z",
+      "deleted_at": null,
+      "email_verified_at": "2024-11-27T06:35:23.649Z",
+      "full_name": "A Tester",
+      "last_logged_in_at": "2024-12-04T15:11:41.000Z",
+      "role": "Trainer",
+      "updated_at": "2024-12-04T15:11:41.967Z"
+    },
+    {
+      "_id": "674f04fa6c94a7e9fca5f861",
+      "is_guest": false,
+      "email": "b@b.com",
+      "__v": 0,
+      "approved_at": "2024-11-27T06:35:23.649Z",
+      "archived_at": null,
+      "blocked_at": null,
+      "created_at": "2024-11-27T06:54:03.425Z",
+      "deleted_at": null,
+      "email_verified_at": "2024-11-27T06:35:23.649Z",
+      "full_name": "B Tester",
+      "last_logged_in_at": "2024-12-04T15:11:51.000Z",
+      "role": "Admin",
+      "updated_at": "2024-12-04T15:11:51.124Z"
+    },
+    {
+      "_id": "674f05166c94a7e9fca5f862",
+      "is_guest": false,
+      "email": "c@c.com",
+      "__v": 0,
+      "approved_at": "2024-11-27T06:35:23.649Z",
+      "archived_at": null,
+      "blocked_at": null,
+      "created_at": "2024-11-27T06:54:03.425Z",
+      "deleted_at": null,
+      "email_verified_at": "2024-11-27T06:35:23.649Z",
+      "full_name": "C Tester",
+      "last_logged_in_at": "2024-12-03T13:18:45.000Z",
+      "role": "Learner",
+      "updated_at": "2024-12-03T13:18:45.059Z"
+    }
+  ],
+  "total": 3,
+  "limit": 20,
+  "total_pages": 1,
+  "current_page": 1,
+  "paging_counter": 1,
+  "has_prev_page": false,
+  "has_next_page": false,
+  "prev_page": null,
+  "next_page": null,
+  "from": 1,
+  "to": 3
+}
