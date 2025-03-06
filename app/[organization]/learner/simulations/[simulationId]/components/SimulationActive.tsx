@@ -31,7 +31,7 @@ function SimulationActive({ simulation }: { simulation: Simulation }) {
           try {
             const response = await simulationService.pingSimulation(orgSlug)
             console.log(
-              `Server ping successful: ${response.data.message} at ${response.data.timestamp}`
+              `Server ping successful: ${response.data.data.message} at ${response.data.data.timestamp}`
             )
           } catch (error) {
             console.error('Failed to ping server:', error)
