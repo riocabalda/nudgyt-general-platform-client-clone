@@ -11,12 +11,41 @@ import authTokenService from '@/app/(shared)/services/authTokenService'
 import simulationService from '@/app/(shared)/services/trainer/simulationService'
 import useSimulationFormStore from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/useSimulationFormStore'
 import NavigationPanel from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/components/NavigationPanel'
+import useCharacterStore from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/useCharacterStore'
 
 function SimulationActive({ simulation }: { simulation: Simulation }) {
   const accessToken = authTokenService.getAccessToken()
+  const { isCharacterInitialized } = useCharacterStore()
   const { orgSlug } = useOrganization()
 
   const { resetFormState } = useSimulationFormStore()
+
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout | null = null
+
+    if (isCharacterInitialized) {
+      // Set up 5-minute interval to ping the server and prevent sleep
+      intervalId = setInterval(
+        async () => {
+          try {
+            const response = await simulationService.pingSimulation(orgSlug)
+            console.log(
+              `Server ping successful: ${response.data.message} at ${response.data.timestamp}`
+            )
+          } catch (error) {
+            console.error('Failed to ping server:', error)
+          }
+        },
+        5 * 60 * 1000
+      ) // 5 minutes in milliseconds
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId)
+      }
+    }
+  }, [isCharacterInitialized, orgSlug])
 
   useEffect(() => {
     const socket = io(serverConfig.socketUrl, {
@@ -27,25 +56,9 @@ function SimulationActive({ simulation }: { simulation: Simulation }) {
       }
     })
 
-    // Set up 5-minute interval to ping the server and prevent sleep
-    const intervalId = setInterval(
-      async () => {
-        try {
-          const response = await simulationService.pingSimulation(orgSlug)
-          console.log(
-            `Server ping successful: ${response.data.message} at ${response.data.timestamp}`
-          )
-        } catch (error) {
-          console.error('Failed to ping server:', error)
-        }
-      },
-      5 * 60 * 1000
-    ) // 5 minutes in milliseconds
-
     return () => {
       socket.disconnect()
       resetFormState()
-      clearInterval(intervalId)
     }
   }, [])
 
