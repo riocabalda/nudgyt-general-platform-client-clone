@@ -25,6 +25,7 @@ function SimulationActive({ simulation }: { simulation: Simulation }) {
 
     if (isCharacterInitialized) {
       // Set up 5-minute interval to ping the server and prevent sleep
+      console.log('setting up interval')
       intervalId = setInterval(
         async () => {
           try {
