@@ -13,7 +13,9 @@ export const useSimulationTimer = (
 
   const hasTimeLimit = Boolean(timeLimit && timeLimit > 0)
   const usedTime = getSimulationUsedTime(simulationData)
-  const timeRemaining = hasTimeLimit ? (timeLimit || 0) - usedTime : usedTime
+  const timeRemaining = hasTimeLimit
+    ? Math.max((timeLimit || 0) - usedTime, 0)
+    : usedTime
 
   const initialTime = msToTime(timeRemaining)
   let currentTime = { ...initialTime }
