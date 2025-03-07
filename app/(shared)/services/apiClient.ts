@@ -29,7 +29,7 @@ function createRetryRequestConfig(error: AxiosError): AxiosRequestConfig {
 
 const apiClient = axios.create({
   baseURL: serverConfig.url,
-  // withCredentials: true,
+  withCredentials: true,
   headers: {
     Accept: 'application/json'
   }
