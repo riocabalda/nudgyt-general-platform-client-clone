@@ -43,17 +43,17 @@ export const useSimulationTimer = (simulationData: Simulation) => {
     const expiryTimestamp = new Date(Date.now() + timeRemaining)
     const offsetTimestamp = new Date(Date.now() + usedTime)
 
-    // const pauseTime = () => {
-    //   if (hasTimeLimit) {
-    //     timer.restart(expiryTimestamp, false)
-    //   } else {
-    //     stopwatch.reset(offsetTimestamp, false)
-    //   }
-    // }
+    const pauseTime = () => {
+      if (hasTimeLimit) {
+        timer.restart(expiryTimestamp, false)
+      } else {
+        stopwatch.reset(offsetTimestamp, false)
+      }
+    }
 
     // Pause simulation
-    if (!isCharacterInitialized && !isSimulationStarted) {
-      // pauseTime()
+    if (!isCharacterInitialized || !isSimulationStarted) {
+      pauseTime()
       return
     }
 
@@ -64,7 +64,7 @@ export const useSimulationTimer = (simulationData: Simulation) => {
       stopwatch.reset(offsetTimestamp)
     }
 
-    // return () => pauseTime()
+    return () => pauseTime()
   }, [
     simulationData.paused_at.length,
     simulationData.resumed_at.length,
