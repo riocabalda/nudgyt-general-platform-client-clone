@@ -163,7 +163,7 @@ function SimulationE3dsIframe() {
 
   return (
     <div className='relative aspect-[100/61] flex items-center justify-center h-[270px] w-full lg:h-full bg-black lg:rounded-[8px] lg:overflow-hidden'>
-      {/* <iframe
+      <iframe
         allow='camera'
         id='iframe_1'
         src={simulationLink}
@@ -171,24 +171,7 @@ function SimulationE3dsIframe() {
         height='100%'
         allowFullScreen
         className='absolute top-0 left-0 w-full'
-      /> */}
-      <button
-        onClick={() => {
-          resumeSimulation({
-            serviceData: serviceData as Service,
-            simulationService: simulationService,
-            orgSlug: orgSlug,
-            simulationId: String(simulationId),
-            reloadEagle3d,
-            role: Role.ADMIN,
-            setCharacterInitialized,
-            mutateSimulation
-          })
-          setCharacterInitialized(true)
-        }}
-      >
-        Start
-      </button>
+      />
       <div className='absolute top-0 right-0 lg:top-auto lg:right-auto lg:bottom-0 w-1/3 h-full lg:h-auto lg:w-full flex flex-col lg:flex-row items-end justify-between p-3 lg:px-6 lg:pb-6'>
         <StopwatchValueAndStopSimulationModal
           simulationData={simulationData as Simulation}
