@@ -24,7 +24,7 @@ function OrganizationTabs() {
   return (
     <div className='overflow-x-hidden w-full'>
       <StyledTabs value={params.tab} onValueChange={reflectTabInParams}>
-        <StyledTabItem name='Basic' value={PageTab.BASIC}>
+        <StyledTabItem name='Basic' value={PageTab.BASIC} className='lg:pt-8'>
           <div className='hidden lg:block'>
             <OrganizationsTab />
           </div>
@@ -34,7 +34,11 @@ function OrganizationTabs() {
           </div>
         </StyledTabItem>
 
-        <StyledTabItem name='Enterprise' value={PageTab.ENTERPRISE}>
+        <StyledTabItem
+          name='Enterprise'
+          value={PageTab.ENTERPRISE}
+          className='lg:pt-8'
+        >
           <div className='hidden lg:block'>
             <EnterprisesTab />
           </div>

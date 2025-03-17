@@ -1,8 +1,9 @@
 'use client'
+
 import { Card } from '@/app/(shared)/components/ui/card'
+import DOMPurify from 'dompurify'
 import Image from 'next/image'
 import ReactQuill from 'react-quill'
-import DOMPurify from 'dompurify'
 import useGetSimulationResults from '../../hooks/useGetSimulationResults'
 import CharactersList from '../CharactersList'
 
@@ -11,15 +12,19 @@ function ServiceDescriptionCard() {
 
   return (
     <Card className='p-6'>
-      <h1 className='text-lg font-bold'>Description</h1>
+      <h3 className='text-lg font-semibold'>Service Description</h3>
       <p className='text-sm text-neutral-gray-600 mt-4'>
         {simulationServiceDetails?.data?.description}
       </p>
+
       <hr className='my-6' />
+
       <div className='flex flex-col gap-6'>
         <CharactersList />
       </div>
+
       <hr className='my-6' />
+
       <div className='grid grid-cols-1 lg:grid-cols-5 gap-[24px] rounded-[8px] mt-4 lg:mt-[24px]'>
         {details?.environment ? (
           <>

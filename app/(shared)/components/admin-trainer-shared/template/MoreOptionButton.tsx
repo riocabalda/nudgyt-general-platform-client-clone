@@ -17,7 +17,7 @@ import useUser from '@/app/(shared)/hooks/useUser'
 
 function MoreOptionsButton({ role = 'admin' }: { role?: string }) {
   const router = useRouter()
-  const { orgSlug } = useOrganization()
+  const { orgSlug, membership } = useOrganization()
   const { templateId } = useParams()
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const { showAlert } = useAlertStore()
@@ -27,6 +27,12 @@ function MoreOptionsButton({ role = 'admin' }: { role?: string }) {
 
   const isCreator =
     user && user._id === (templateData?.data.creator as unknown as string)
+
+  const isShared = templateData?.data.shared_to_organizations.some(
+    (org) => org === membership?.organization._id
+  )
+
+  console.log('isShared', isShared)
 
   const handleEditTemplate = () => {
     router.push(`/${orgSlug}/${role}/templates/${templateId}/edit`)
@@ -77,7 +83,7 @@ function MoreOptionsButton({ role = 'admin' }: { role?: string }) {
               Edit Template
             </Button>
           )}
-          {templateData?.data.is_published && (
+          {templateData?.data.is_published && isShared && isCreator && (
             <Button
               variant='ghost'
               className='w-full !justify-start text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600'

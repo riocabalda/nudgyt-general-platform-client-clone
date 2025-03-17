@@ -19,7 +19,7 @@ function UserCard() {
         <AvatarFallback
           className={cn(
             'text-white',
-            firstOrgRole === roles.learner ? 'bg-[#F3706F]' : 'bg-primary-500'
+            firstOrgRole === roles.learner ? 'bg-[#F3706F]' : 'bg-brandcolora'
           )}
         >
           {generateAvatarInitials(user?.full_name || 'N')}

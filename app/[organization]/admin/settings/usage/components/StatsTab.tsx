@@ -21,11 +21,11 @@ function StatsTab() {
   return (
     <div className='overflow-x-hidden w-full'>
       <StyledTabs value={selectedTab} onValueChange={reflectTabInParams}>
-        <StyledTabItem name='Learners' value='learners'>
+        <StyledTabItem name='Learners' value='learners' className='lg:pt-8'>
           <LearnerStatTable />
         </StyledTabItem>
 
-        <StyledTabItem name='Services' value='services'>
+        <StyledTabItem name='Services' value='services' className='lg:pt-8'>
           <ServiceStatTable />
         </StyledTabItem>
       </StyledTabs>

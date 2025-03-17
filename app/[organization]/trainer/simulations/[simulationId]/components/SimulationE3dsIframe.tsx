@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import {
   cleanAIResponse,
-  initializeCharacter,
   replaceLongSpacesWithNewline
 } from '@/app/(shared)/utils'
 import { useParams, useSearchParams } from 'next/navigation'
@@ -19,31 +18,32 @@ import SimulationFloatingActionButton from './SimulationFloatingActions'
 import useGetService from '../../../services/[serviceId]/hooks/useGetService'
 import simulationService from '@/app/(shared)/services/trainer/simulationService'
 import transcriptService from '@/app/(shared)/services/trainer/transcriptService'
-import StopwatchValueAndStopSimulationModal from './StopwatchValueAndStopSimulationModal'
-import pauseSimulation from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/utils/pauseSimulation'
+import useWebSocket from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/useWebSocket'
 import resumeSimulation from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/utils/resumeSimulation'
 import useCharacterStore from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/useCharacterStore'
-import useSimulationFormStore from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/useSimulationFormStore'
-
+import usePingSimulation from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/usePingSimulation'
+import useReloadEagle3d from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/[simulationId]/hooks/useReloadEagle3d'
+import StopwatchValueAndStopSimulationModal from './StopwatchValueAndStopSimulationModal'
 function SimulationE3dsIframe() {
-  const [isPlayPressed, setIsPlayPressed] = useState(false)
-
   const { orgSlug } = useOrganization()
   const { simulationId } = useParams()
   const searchParams = useSearchParams()
   const params = new URLSearchParams(searchParams?.toString() ?? '')
   const navParam = params.get('panel')
 
+  // To be Refactor
+  // Hardcoded for now
+  const simulationLink =
+    'https://connector.eagle3dstreaming.com/v5/kathyu.168/GeneralPlatform_PicBG_V10/default'
+
+  const { reloadEagle3d } = useReloadEagle3d(simulationLink)
   const {
     isCharacterInitialized,
-    setCharacterInitialized,
     selectedPersonalityId,
+    setCharacterInitialized,
     setSelectedPersonalityId,
-    enableSelection: enableCharacterSelection,
-    reset: resetCharacter
+    enableSelection: enableCharacterSelection
   } = useCharacterStore()
-
-  const { resetFormState } = useSimulationFormStore()
 
   const {
     simulationData,
@@ -58,10 +58,12 @@ function SimulationE3dsIframe() {
     error: serviceError
   } = useGetService(orgSlug, simulationData?.service as string)
 
-  // To be Refactor
-  // Hardcoded for now
-  const simulationLink =
-    'https://connector.eagle3dstreaming.com/v5/kathyu.168/Nudgyt_PicBG_v9/tridonicconfig'
+  useWebSocket(String(simulationId), mutateSimulation, reloadEagle3d)
+  usePingSimulation({
+    simulationService,
+    orgSlug,
+    simulationId: String(simulationId)
+  })
 
   const { mutate } = useGetTranscripts(orgSlug, String(simulationId))
 
@@ -93,10 +95,9 @@ function SimulationE3dsIframe() {
             simulationService: simulationService,
             orgSlug: orgSlug,
             simulationId: String(simulationId),
-            simulationLink,
+            reloadEagle3d,
             role: Role.TRAINER,
-            initializeCharacter,
-            setIsPlayPressed,
+            setCharacterInitialized,
             mutateSimulation
           })
         }
@@ -134,29 +135,11 @@ function SimulationE3dsIframe() {
       }
     }
 
-    if (isPlayPressed) setCharacterInitialized()
-
     window.addEventListener('message', eventHandler)
     return () => {
       window.removeEventListener('message', eventHandler)
-      resetCharacter()
     }
-  }, [selectedPersonalityId, serviceData, isPlayPressed])
-
-  // Pause the simulation when the component unmounts
-  useEffect(() => {
-    return () => {
-      pauseSimulation({
-        simulationService: simulationService,
-        role: Role.TRAINER,
-        orgSlug: orgSlug,
-        simulationId: String(simulationId),
-        resetFormState: resetFormState,
-        setSelectedPersonalityId: setSelectedPersonalityId,
-        mutateSimulation: mutateSimulation
-      })
-    }
-  }, [])
+  }, [selectedPersonalityId, serviceData])
 
   if (simulationError || serviceError)
     return (
@@ -185,7 +168,7 @@ function SimulationE3dsIframe() {
         height='100%'
         allowFullScreen
         className='absolute top-0 left-0 w-full'
-      ></iframe>
+      />
       <div className='absolute top-0 right-0 lg:top-auto lg:right-auto lg:bottom-0 w-1/3 h-full lg:h-auto lg:w-full flex flex-col lg:flex-row items-end justify-between p-3 lg:px-6 lg:pb-6'>
         <StopwatchValueAndStopSimulationModal
           simulationData={simulationData as Simulation}

@@ -6,9 +6,12 @@ import {
   DialogTitle,
   DialogDescription
 } from '@/app/(shared)/components/ui/dialog'
-import EndSimulationBtn from '../../../../../../[organization]/admin/simulations/[simulationId]/components/EndSimulationBtn'
 
-function TimesUpModal() {
+function TimesUpModal({
+  endSimulationBtn
+}: {
+  endSimulationBtn: React.ReactNode
+}) {
   return (
     <Dialog open={true}>
       <DialogContent
@@ -27,7 +30,7 @@ function TimesUpModal() {
           Your allotted time for this service has ended.
         </DialogDescription>
         <div className='flex flex-col lg:flex-row items-center justify-end gap-6 mt-6'>
-          <EndSimulationBtn />
+          {endSimulationBtn}
         </div>
       </DialogContent>
     </Dialog>

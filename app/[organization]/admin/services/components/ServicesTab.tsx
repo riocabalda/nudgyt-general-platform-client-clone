@@ -96,26 +96,10 @@ function ServicesTab() {
         onValueChange={reflectTabInParams}
         className='min-h-fit'
       >
-        <StyledTabItem
-          name='All'
-          value={ServicePageTab.ALL}
-          className='lg:p-0'
-        />
-        <StyledTabItem
-          name='My Services'
-          value={ServicePageTab.MY_SERVICES}
-          className='lg:p-0'
-        />
-        <StyledTabItem
-          name='Published'
-          value={ServicePageTab.PUBLISHED}
-          className='lg:p-0'
-        />
-        <StyledTabItem
-          name='Drafts'
-          value={ServicePageTab.DRAFTS}
-          className='lg:p-0'
-        />
+        <StyledTabItem name='All' value={ServicePageTab.ALL} />
+        <StyledTabItem name='My Services' value={ServicePageTab.MY_SERVICES} />
+        <StyledTabItem name='Published' value={ServicePageTab.PUBLISHED} />
+        <StyledTabItem name='Drafts' value={ServicePageTab.DRAFTS} />
       </StyledTabs>
     </div>
   )

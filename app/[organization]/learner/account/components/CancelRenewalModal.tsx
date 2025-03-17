@@ -54,9 +54,7 @@ function CancelRenewalModal(props: { body: ReactNode }) {
               <Button variant='outline'>Go back</Button>
             </DialogClose>
 
-            <Button className='bg-primary-500 hover:bg-primary-500/90 cursor-not-allowed'>
-              Cancel subscription
-            </Button>
+            <Button className='cursor-not-allowed'>Cancel subscription</Button>
           </footer>
         </div>
       </DialogContent>

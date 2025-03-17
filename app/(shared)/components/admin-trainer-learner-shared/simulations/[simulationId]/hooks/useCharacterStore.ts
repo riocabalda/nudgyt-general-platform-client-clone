@@ -8,7 +8,7 @@ type CharacterState = {
 }
 
 type CharacterAction = {
-  setCharacterInitialized: () => void
+  setCharacterInitialized: (state: boolean) => void
   setCharactersCount: (count: number) => void
   setSelectedPersonalityId: (id: string | null) => void
   enableSelection: () => void
@@ -25,13 +25,14 @@ const defaultState: CharacterState = {
 
 const useCharacterStore = create<CharacterState & CharacterAction>((set) => ({
   ...defaultState,
-  setCharacterInitialized: () => set(() => ({ isCharacterInitialized: true })),
+  setCharacterInitialized: (state: boolean) =>
+    set(() => ({ isCharacterInitialized: state })),
   setCharactersCount: (count: number) =>
     set(() => ({ charactersCount: count })),
   setSelectedPersonalityId: (id) => set({ selectedPersonalityId: id }),
   enableSelection: () => set({ isSelectionEnabled: true }),
   disableSelection: () => set({ isSelectionEnabled: false }),
-  reset: () => set(() => ({ isCharacterInitialized: false }))
+  reset: () => set(() => defaultState)
 }))
 
 export default useCharacterStore

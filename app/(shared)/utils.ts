@@ -260,16 +260,6 @@ export function formatOrdinalNumber(
 }
 
 export function getSimulationUsedTime(simulation: Simulation) {
-  const timeUsed = calculateTimeUsed(simulation)
-
-  if (timeUsed < 0) {
-    return 0
-  }
-
-  return timeUsed
-}
-
-function calculateTimeUsed(simulation: Simulation) {
   if (simulation.resumed_at?.length) {
     let timeUsed = 0
     const parsedResumeValues = simulation.resumed_at
@@ -685,20 +675,6 @@ export function cleanAIResponse(response: string) {
     index !== -1 ? response.substring(index + 1).trim() : response
   ).trim()
   return cleanResponse
-}
-
-export function msToTime(milliseconds: number) {
-  const totalSeconds = Math.floor(milliseconds / 1000)
-  const hours = Math.floor(totalSeconds / 3600)
-  const minutes = Math.floor((totalSeconds % 3600) / 60)
-  const seconds = (totalSeconds % 3600) % 60
-
-  return {
-    totalSeconds,
-    hours,
-    minutes,
-    seconds
-  }
 }
 
 export const formatAgeText = (age: string | undefined) => {

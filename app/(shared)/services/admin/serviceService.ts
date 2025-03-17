@@ -3,6 +3,7 @@ import apiClient from '../apiClient'
 import { User } from '../userService'
 import { Character } from './characterService'
 import { OrganizationUser } from './organizationService'
+import { Simulation } from './simulationService'
 
 type ServiceType = {
   _id: string
@@ -63,7 +64,7 @@ export type Service = {
   organization: OrganizationUser
   shared_to_organizations: OrganizationUser[]
   last_paused_at?: string
-  simulations?: any[]
+  simulations?: Simulation[]
   created_at: string
   last_attempt?: Date
   ended_at?: Date

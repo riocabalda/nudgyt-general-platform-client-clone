@@ -68,7 +68,7 @@ const CreateCharacter = () => {
       hidden_backstory: hiddenBackstory,
       voice_type: voiceType,
       backstory,
-      languages: languages && languages.map((lang: any) => lang.value),
+      languages: languages && languages.map((lang) => lang.label),
       personality
     }
 

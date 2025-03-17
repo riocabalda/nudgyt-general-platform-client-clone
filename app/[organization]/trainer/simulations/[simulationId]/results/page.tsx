@@ -12,7 +12,7 @@ function SimulationResultsPage() {
         headerDesktop={
           <MainContainer.HeaderDesktop title='Service Results' showBackBtn />
         }
-        className='lg:container pb-20 lg:p-0'
+        className='pb-20 lg:p-0'
       >
         <ResultContainer />
       </MainContainer>

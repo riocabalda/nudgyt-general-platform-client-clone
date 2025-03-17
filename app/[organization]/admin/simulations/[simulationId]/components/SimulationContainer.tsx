@@ -26,7 +26,7 @@ function SimulationContainer() {
   const render = () => {
     if (activeSimulation)
       return simulationData && <SimulationActive simulation={simulationData} />
-    return <SimulationComplete role={Role.ADMIN} isTrialResults={true} />
+    return <SimulationComplete role={Role.ADMIN} />
   }
 
   if (error)

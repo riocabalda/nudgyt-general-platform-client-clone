@@ -47,7 +47,7 @@ function SelectSubscriptionModal(props: { subscription: MockSubscription }) {
           />
 
           <DialogFooter>
-            <Button className='ml-auto h-fit min-w-[158px] !px-8 py-3 font-medium bg-primary-500 hover:bg-primary-500/90 cursor-not-allowed'>
+            <Button className='ml-auto h-fit min-w-[158px] !px-8 py-3 font-medium cursor-not-allowed'>
               Confirm
             </Button>
           </DialogFooter>

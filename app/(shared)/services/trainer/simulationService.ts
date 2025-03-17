@@ -125,8 +125,8 @@ const getPreviousAttemptSimulations = (orgSlug: string, queryString: string) =>
     >
   >(`/${orgSlug}/trainer/simulations/previous-attempts/?${queryString}`)
 
-const pingSimulation = (orgSlug: string) =>
-  apiClient.get(`/${orgSlug}/trainer/simulations/ping`)
+const pingSimulation = (orgSlug: string, simulationId: string) =>
+  apiClient.get(`/${orgSlug}/trainer/simulations/${simulationId}/ping`)
 
 const simulationService = {
   startSimulationTrial,

@@ -19,6 +19,7 @@ export type Simulation = {
   started_at: string | null
   ended_at: string | null
   resumed_at: string[]
+  is_trial_data: boolean
   paused_at: string[]
   time_limit: number | null
   simulation_result: {
@@ -160,8 +161,8 @@ const getPreviousAttemptSimulations = (orgSlug: string, queryString: string) =>
     >
   >(`/${orgSlug}/admin/simulations/previous-attempts/?${queryString}`)
 
-const pingSimulation = (orgSlug: string) =>
-  apiClient.get(`/${orgSlug}/admin/simulations/ping`)
+const pingSimulation = (orgSlug: string, simulationId: string) =>
+  apiClient.get(`/${orgSlug}/admin/simulations/${simulationId}/ping`)
 
 const simulationService = {
   startSimulationTrial,

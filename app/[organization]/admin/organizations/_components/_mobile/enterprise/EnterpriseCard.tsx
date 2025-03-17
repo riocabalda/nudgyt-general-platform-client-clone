@@ -1,6 +1,6 @@
 'use client'
 
-import { OrganizationIndicatorColor } from '@/app/(shared)/(users)/indicator-color'
+import { OrganizationStatusIndicator } from '@/app/(shared)/(users)/StatusIndicator'
 import { Card } from '@/app/(shared)/components/ui/card'
 import { Checkbox } from '@/app/(shared)/components/ui/checkbox'
 import { EnterpriseUser } from '@/app/(shared)/services/admin/organizationService'
@@ -14,7 +14,6 @@ function EnterpriseCard(props: { enterprise: EnterpriseUser }) {
     useEnterprisesStore()
 
   const selectedUser = selectedEnterprises.some((r) => r._id === enterprise._id)
-  const bgColor = OrganizationIndicatorColor[enterprise.status]
 
   return (
     <Card
@@ -44,10 +43,7 @@ function EnterpriseCard(props: { enterprise: EnterpriseUser }) {
       <div className='flex items-center justify-between mt-4'>
         <p className='text-sm text-brandcolora'>{enterprise.email}</p>
         <div className='flex items-center gap-2'>
-          <span
-            className='block w-[10px] h-[10px] rounded-full bg-brandcolora'
-            style={{ backgroundColor: bgColor }}
-          />
+          <OrganizationStatusIndicator status={enterprise.status} />
           <p className='text-sm'>{enterprise.status}</p>
         </div>
       </div>

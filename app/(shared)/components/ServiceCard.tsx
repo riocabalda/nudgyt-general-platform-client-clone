@@ -28,7 +28,9 @@ function ServiceCard({ serviceData, type, link }: ServiceCardProps) {
     serviceData &&
     'last_paused_at' in serviceData &&
     serviceData?.last_paused_at
-  const simulationStartedAt = serviceData?.simulations?.[0]?.started_at
+  const simulationStartedAt = serviceData?.simulations
+    ?.filter((simulation) => !simulation.is_trial_data)
+    ?.map((simulation) => simulation.started_at)[0]
   const isCreator = serviceData?.creator?._id === user?._id
 
   return (

@@ -40,7 +40,7 @@ function OrganizationProfileAvatar(props: {
   return (
     <Avatar className='size-20'>
       <AvatarImage src={avatarSrc} className='object-cover' />
-      <AvatarFallback className='text-white bg-primary-500 text-4xl select-none'>
+      <AvatarFallback className='text-white bg-brandcolora text-4xl select-none'>
         {generateAvatarInitials(fallbackBaseText)}
       </AvatarFallback>
     </Avatar>

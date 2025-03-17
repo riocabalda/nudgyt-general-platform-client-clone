@@ -2,7 +2,6 @@ import * as React from 'react'
 import { cn } from '@/app/(shared)/utils'
 import dynamic from 'next/dynamic'
 import 'react-quill/dist/quill.snow.css'
-import 'react-quill/dist/quill.snow.css'
 
 // Dynamic import for ReactQuill
 const ReactQuill = dynamic(() => import('react-quill'), {
@@ -36,21 +35,27 @@ export interface RichTextProps {
   height?: string
 }
 
-const RichText = React.forwardRef<typeof ReactQuill, RichTextProps>(
-  ({
-    className,
-    value,
-    onChange,
-    placeholder = 'Start typing...',
-    isError,
-    modules = defaultModules,
-    formats = defaultFormats,
-    readOnly = false,
-    ...props
-  }) => {
+const RichText = React.forwardRef<HTMLDivElement, RichTextProps>(
+  (
+    {
+      className,
+      value,
+      onChange,
+      placeholder = 'Start typing...',
+      isError,
+      modules = defaultModules,
+      formats = defaultFormats,
+      readOnly = false,
+      ...props
+    },
+    ref
+  ) => {
     const effectiveModules = readOnly ? { toolbar: false } : modules
     return (
-      <div className={cn('relative', isError && 'quill-error', className)}>
+      <div
+        ref={ref}
+        className={cn('relative', isError && 'quill-error', className)}
+      >
         <ReactQuill
           theme={readOnly ? 'bubble' : 'snow'}
           value={value}

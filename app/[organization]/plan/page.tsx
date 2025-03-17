@@ -98,13 +98,7 @@ function OrganizationPlanPage() {
             </Button>
           )}
 
-          <Button
-            onClick={nextCard}
-            className={cn(
-              'bg-primary-500 hover:bg-primary-500/90',
-              cardIdx === 2 && 'w-1/2'
-            )}
-          >
+          <Button onClick={nextCard} className={cn(cardIdx === 2 && 'w-1/2')}>
             {cardIdx === 0 && <>Confirm Subscription</>}
             {cardIdx === 1 && <>Proceed to Payment</>}
             {cardIdx === 2 && <>Get Started</>}
@@ -115,7 +109,7 @@ function OrganizationPlanPage() {
           Something not right?{' '}
           <Link
             href='mailto:info@nudgyt.com'
-            className='text-primary-500 underline underline-offset-2'
+            className='text-brandcolora underline underline-offset-2'
           >
             Contact Nudgyt
           </Link>

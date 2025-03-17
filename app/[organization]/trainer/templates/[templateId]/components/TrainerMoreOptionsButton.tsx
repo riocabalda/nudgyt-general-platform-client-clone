@@ -38,11 +38,11 @@ function TrainerMoreOptionsButton() {
         String(orgSlug),
         String(templateId)
       )
-      router.replace(`/${orgSlug}/trainer/templates/${data.data._id}`)
       showAlert({
         message: 'Template duplicated successfully',
         variant: 'success'
       })
+      router.replace(`/${orgSlug}/trainer/templates/${data.data._id}`)
     } catch (error) {
       console.error(error)
     }
@@ -70,7 +70,7 @@ function TrainerMoreOptionsButton() {
           {isCreator && (
             <Button
               variant='ghost'
-              className='w-full !justify-start text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600'
+              className='w-full !justify-start text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600 rounded-none'
               disabled={templateData?.data.is_published}
               onClick={handleEditTemplate}
             >
@@ -80,7 +80,7 @@ function TrainerMoreOptionsButton() {
           {templateData?.data.is_published && isCreator && (
             <Button
               variant='ghost'
-              className='w-full !justify-start text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600'
+              className='w-full !justify-start text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600 rounded-none'
               onClick={handleUseTemplate}
             >
               Use Template
@@ -88,7 +88,7 @@ function TrainerMoreOptionsButton() {
           )}
           <Button
             variant='ghost'
-            className='w-full !justify-start text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600'
+            className='w-full !justify-start text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600 rounded-none'
             onClick={handleDuplicateTemplate}
           >
             Duplicate Template

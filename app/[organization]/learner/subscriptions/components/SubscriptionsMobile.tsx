@@ -48,7 +48,7 @@ function SubscriptionsMobile() {
               className={cn(
                 'rounded-[8px] text-left',
                 subscription.id === selectedSubscription?.id &&
-                  'ring-2 ring-primary-500'
+                  'ring-2 ring-brandcolora'
               )}
               onClick={() => handleSelectedSubscription(subscription)}
             >
@@ -68,16 +68,14 @@ function SubscriptionsMobile() {
         </h2>
 
         {!hasRate ? (
-          <p className='mt-2 font-medium text-primary-500'>Free</p>
+          <p className='mt-2 font-medium text-brandcolora'>Free</p>
         ) : (
-          <p className='mt-2 font-medium text-primary-500'>
+          <p className='mt-2 font-medium text-brandcolora'>
             {selectedSubscription?.price} / {selectedSubscription?.time}
           </p>
         )}
 
-        <Button className='w-full mt-6 bg-primary-500 hover:bg-primary-500/90'>
-          Select
-        </Button>
+        <Button className='w-full mt-6'>Select</Button>
       </footer>
     </div>
   )

@@ -91,11 +91,7 @@ function DeclineInvitationModal(props: {
             <Button variant='outline'>Go back</Button>
           </DialogClose>
 
-          <Button
-            disabled={isSubmitting}
-            onClick={decline}
-            className='w-full bg-primary-500 hover:bg-primary-500/90'
-          >
+          <Button disabled={isSubmitting} onClick={decline} className='w-full'>
             {isSubmitting ? (
               <>
                 <Loader className='w-4 h-4 mr-2 animate-spin' />
@@ -195,10 +191,7 @@ function NewOwnerInvitationForm(props: {
         <footer className='grid lg:grid-cols-2 gap-4'>
           <DeclineInvitationModal pendingOrganization={pendingOrganization} />
 
-          <Button
-            disabled={isSubmitting}
-            className='w-full bg-primary-500 hover:bg-primary-500/90'
-          >
+          <Button disabled={isSubmitting} className='w-full'>
             {isSubmitting ? (
               <>
                 <Loader className='w-4 h-4 mr-2 animate-spin' />
@@ -220,7 +213,7 @@ function NewOwnerInvitationCard(props: {
   const { pendingOrganization } = props
 
   return (
-    <Card className='mx-4 lg:mx-0 rounded-[8px] px-6 py-10 lg:px-20 space-y-6 border-2 border-primary-500'>
+    <Card className='mx-4 lg:mx-0 rounded-[8px] px-6 py-10 lg:px-20 space-y-6 border-2 border-brandcolora'>
       <h3 className='text-center text-neutral-gray-800 font-semibold text-2xl'>
         You&rsquo;ve been invited as a new organization owner
       </h3>

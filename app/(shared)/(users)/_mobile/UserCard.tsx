@@ -1,8 +1,9 @@
+'use client'
+
 import { ChevronRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { Card } from '../../components/ui/card'
 import { Checkbox } from '../../components/ui/checkbox'
-import useOrganization from '../../hooks/useOrganization'
 import { useUserStore } from '../../hooks/useUsersStore'
 import { PaginatedUser } from '../../services/admin/userService'
 import {
@@ -10,7 +11,7 @@ import {
   OrganizationMembership
 } from '../../services/userService'
 import { cn, getUserOrgRole, pluralize } from '../../utils'
-import { UserIndicatorColor } from '../indicator-color'
+import { UserStatusIndicator } from '../StatusIndicator'
 
 function getStatus(
   user: PaginatedUser,
@@ -45,8 +46,9 @@ function getStatus(
   return 'Unverified'
 }
 
-function UserCard({ user }: { user: PaginatedUser }) {
-  const { orgSlug } = useOrganization()
+function UserCard(props: { user: PaginatedUser; orgSlug: string }) {
+  const { user, orgSlug } = props
+
   const { selectedUsers, toggleUser, showMultipleCheckbox } = useUserStore()
   const router = useRouter()
 
@@ -55,7 +57,6 @@ function UserCard({ user }: { user: PaginatedUser }) {
   )
 
   const status = getStatus(user, orgMembership)
-  const bgColor = UserIndicatorColor[status]
 
   const selectedUser = selectedUsers.some((r) => r._id === user._id)
 
@@ -109,10 +110,7 @@ function UserCard({ user }: { user: PaginatedUser }) {
           )}
         </p>
         <div className='flex items-center gap-2'>
-          <span
-            className='block w-[10px] h-[10px] rounded-full bg-brandcolora'
-            style={{ backgroundColor: bgColor }}
-          />
+          <UserStatusIndicator status={status} />
           <p className='text-sm'>{status}</p>
         </div>
       </div>

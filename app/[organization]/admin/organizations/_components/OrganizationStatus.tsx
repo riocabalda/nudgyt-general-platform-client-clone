@@ -1,4 +1,4 @@
-import { OrganizationIndicatorColor } from '@/app/(shared)/(users)/indicator-color'
+import { OrganizationStatusIndicator } from '@/app/(shared)/(users)/StatusIndicator'
 import {
   EnterpriseUser,
   OrganizationUser
@@ -12,14 +12,9 @@ function OrganizationStatus(props: {
 }) {
   const { tier, organization } = props
 
-  const bgColor = OrganizationIndicatorColor[organization.status]
-
   return (
     <div className='flex items-center gap-[10px]'>
-      <span
-        className='h-[10px] w-[10px] rounded-full block'
-        style={{ backgroundColor: bgColor }}
-      ></span>
+      <OrganizationStatusIndicator status={organization.status} />
       <OrganizationStatusMenu
         tier={tier}
         organization={organization}

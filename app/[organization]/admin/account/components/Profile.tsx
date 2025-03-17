@@ -88,7 +88,7 @@ function ProfileAvatar() {
   return (
     <Avatar className='size-20'>
       <AvatarImage src={avatarSrc} className='object-cover' />
-      <AvatarFallback className='text-white bg-primary-500 text-4xl'>
+      <AvatarFallback className='text-white bg-brandcolora text-4xl'>
         {generateAvatarInitials(fallbackBaseText)}
       </AvatarFallback>
     </Avatar>

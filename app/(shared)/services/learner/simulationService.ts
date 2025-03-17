@@ -18,6 +18,7 @@ export type Simulation = {
   deleted_at: string | null
   started_at: string | null
   ended_at: string | null
+  is_trial_data: boolean
   resumed_at: string[]
   paused_at: string[]
   time_limit: number | null
@@ -170,8 +171,8 @@ const getPreviousAttemptSimulations = (orgSlug: string, queryString: string) =>
     >
   >(`/${orgSlug}/learner/simulations/previous-attempts/?${queryString}`)
 
-const pingSimulation = (orgSlug: string) =>
-  apiClient.get(`/${orgSlug}/learner/simulations/ping`)
+const pingSimulation = (orgSlug: string, simulationId: string) =>
+  apiClient.get(`/${orgSlug}/learner/simulations/${simulationId}/ping`)
 
 const simulationService = {
   startSimulation,

@@ -15,6 +15,7 @@ import TemplateInfiniteScroll from './components/mobile/TemplateInfiniteScroll'
 import useSWR from 'swr'
 import useOrganization from '@/app/(shared)/hooks/useOrganization'
 import templateService from '@/app/(shared)/services/trainer/templateService'
+import TemplatesTab from './components/TemplatesTab'
 
 function TemplatesPage() {
   const searchParams = useSearchParams()
@@ -22,11 +23,13 @@ function TemplatesPage() {
   const pathname = usePathname()
   const { orgSlug } = useOrganization()
 
-  if (searchParams.get('page') === null) {
-    const params = new URLSearchParams(searchParams.toString())
-    params.set('page', '1')
-    router.replace(`${pathname}?${params.toString()}`)
-  }
+  useEffect(() => {
+    if (searchParams.get('page') === null) {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set('page', '1')
+      router.replace(`${pathname}?${params.toString()}`)
+    }
+  }, [searchParams, pathname, router])
 
   const { data: templateData } = useSWR(
     orgSlug ? `/${orgSlug}/trainer/templates?${searchParams.toString()}` : null,
@@ -60,7 +63,10 @@ function TemplatesPage() {
         className='lg:px-0'
       >
         <>
-          <div className='flex bg-white border-b border-b-slate-300 lg:border-b-0 lg:bg-transparent lg:container px-4 lg:px-[40px] py-0 lg:pb-0 lg:grid grid-cols-3 gap-4 lg:gap-6 items-center'>
+          <div className='hidden lg:block'>
+            <TemplatesTab />
+          </div>
+          <div className='flex bg-white border-b border-b-slate-300 lg:border-b-0 lg:bg-transparent lg:container px-4 lg:px-10 py-6 lg:py-10 lg:pb-0 lg:grid grid-cols-3 gap-4 lg:gap-6 items-center'>
             <Search
               isRemovePageQueryOnSearch={false}
               containerClass='lg:w-full'
@@ -76,6 +82,9 @@ function TemplatesPage() {
             </div>
           </div>
 
+          <div className='lg:hidden mt-4 overflow-x-auto pb-[2px] lg:!pb-0'>
+            <TemplatesTab />
+          </div>
           <div className='hidden lg:block lg:mt-6 lg:container px-4 lg:px-[40px]'>
             <Templates />
           </div>

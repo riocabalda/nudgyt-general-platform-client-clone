@@ -1,18 +1,20 @@
 'use client'
 
+import useOrganization from '@/app/(shared)/hooks/useOrganization'
+import { orgPrefixRoute } from '@/app/(shared)/utils'
 import { ArrowRightIcon } from 'lucide-react'
 import Link from 'next/link'
 import useGetSimulationResults from '../hooks/useGetSimulationResults'
-import useOrganization from '@/app/(shared)/hooks/useOrganization'
-import { orgPrefixRoute } from '@/app/(shared)/utils'
 
 function ServiceHeadline() {
   const { orgSlug, membership } = useOrganization()
   const { simulationServiceDetails } = useGetSimulationResults()
+
   const role = orgPrefixRoute(membership?.roles || [])
+
   return (
     <div className='flex justify-between items-center pr-4 gap-2'>
-      <h1 className='text-xl lg:text-2xl font-bold'>
+      <h1 className='text-xl lg:text-2xl font-semibold'>
         {simulationServiceDetails?.data?.service?.title}
       </h1>
       <Link

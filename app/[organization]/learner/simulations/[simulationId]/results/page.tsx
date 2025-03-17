@@ -1,9 +1,8 @@
-'use client'
 import MainContainer from '@/app/(shared)/components/MainContainer'
 import ResultContainer from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/components/ResultContainer'
+import RetrySimulationButton from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/components/RetrySimulationButton'
 import RequireAuth from '@/app/(shared)/components/helper/RequireAuth'
 import { roles } from '@/app/(shared)/services/userService'
-import RetrySimulationButton from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/components/RetrySimulationButton'
 
 function SimulationResultsPage() {
   return (
@@ -17,7 +16,7 @@ function SimulationResultsPage() {
             slotEnd={<RetrySimulationButton />}
           />
         }
-        className='lg:container pb-20 lg:p-0'
+        className='pb-20 lg:p-0'
       >
         <ResultContainer />
         <div className='fixed bottom-0 w-full p-4 pb-[40px] bg-white flex flex-col lg:hidden'>

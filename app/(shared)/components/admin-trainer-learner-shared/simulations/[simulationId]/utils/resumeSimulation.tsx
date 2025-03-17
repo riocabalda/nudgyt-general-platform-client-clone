@@ -1,10 +1,11 @@
-import AdminSimulationService from '@/app/(shared)/services/admin/simulationService'
-import TrainerSimulationService from '@/app/(shared)/services/trainer/simulationService'
-import LearnerSimulationService from '@/app/(shared)/services/learner/simulationService'
+import { Role } from '@/app/(shared)/types'
 import { Service as AdminService } from '@/app/(shared)/services/admin/serviceService'
 import { Service as TrainerService } from '@/app/(shared)/services/trainer/serviceService'
 import { Service as LearnerService } from '@/app/(shared)/services/learner/serviceService'
-import { Role } from '@/app/(shared)/types'
+import { initializeCharacter } from '@/app/(shared)/utils'
+import AdminSimulationService from '@/app/(shared)/services/admin/simulationService'
+import TrainerSimulationService from '@/app/(shared)/services/trainer/simulationService'
+import LearnerSimulationService from '@/app/(shared)/services/learner/simulationService'
 
 type ResumeSimulationProps = {
   serviceData: AdminService | TrainerService | LearnerService
@@ -14,14 +15,9 @@ type ResumeSimulationProps = {
     | typeof LearnerSimulationService
   orgSlug: string
   simulationId: string
-  simulationLink: string
+  reloadEagle3d: () => void
   role: Role
-  initializeCharacter: (
-    characterId: string,
-    environmentId: string,
-    personalityId: string
-  ) => void
-  setIsPlayPressed: (isPlayPressed: boolean) => void
+  setCharacterInitialized: (state: boolean) => void
   mutateSimulation: () => void
 }
 
@@ -31,10 +27,9 @@ async function resumeSimulation({
   orgSlug,
   simulationId,
   role,
-  initializeCharacter,
-  setIsPlayPressed,
+  reloadEagle3d,
   mutateSimulation,
-  simulationLink
+  setCharacterInitialized
 }: ResumeSimulationProps) {
   try {
     // Get the character ID, environment ID, and personality ID from the service data.
@@ -62,21 +57,14 @@ async function resumeSimulation({
     // initialize the character, set the play state to true, and mutate the simulation.
     if (characterId && environmentId && personalityId) {
       initializeCharacter(characterId, environmentId, personalityId)
-      setIsPlayPressed(true)
+      setCharacterInitialized(true)
     }
 
     // Mutate the simulation to ensure the latest simulation data is fetched.
     mutateSimulation()
   } catch (error) {
     // If an error occurs, try to reload the simulation and relaunch eagle3d stream.
-    const iframe = document.getElementById('iframe_1') as HTMLIFrameElement
-    if (iframe && iframe.src) {
-      const currentSrc = iframe.src
-      iframe.src = simulationLink
-      setTimeout(() => {
-        iframe.src = currentSrc
-      }, 100)
-    }
+    reloadEagle3d()
     console.error(error)
   }
 }

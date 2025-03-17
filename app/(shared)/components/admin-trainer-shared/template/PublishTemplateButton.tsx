@@ -27,7 +27,7 @@ function PublishTemplateButton() {
     !!templateData.data.title &&
     !!templateData.data.description &&
     !!templateData.data.service_type &&
-    !!templateData.data.characters &&
+    !!templateData.data.characters.length &&
     !!templateData.data.environment
 
   const handlePublishUnpublishTemplate = async () => {

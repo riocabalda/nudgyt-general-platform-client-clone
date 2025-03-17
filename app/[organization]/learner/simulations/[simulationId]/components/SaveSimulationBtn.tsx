@@ -12,7 +12,8 @@ function SaveSimulationBtn() {
 
   const { simulationData, mutate } = useGetSimulation(
     orgSlug,
-    String(simulationId)
+    String(simulationId),
+    { revalidateOnFocus: false, revalidateOnMount: false }
   )
   const handleSaveExit = () => {
     router.replace(`/${orgSlug}/learner/services/${simulationData?.service}`)

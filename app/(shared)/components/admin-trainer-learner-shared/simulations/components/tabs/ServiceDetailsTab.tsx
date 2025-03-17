@@ -1,17 +1,20 @@
+'use client'
+
 import { Card } from '@/app/(shared)/components/ui/card'
-import OverallScoreCard from '../cards/OverallScoreCard'
-import CompletedTimeCard from '../cards/CompletedTimeCard'
-import SoftSkillsCard from '../cards/SoftSkillsCard'
-import ServiceDescriptionCard from '../cards/ServiceDescriptionCard'
-import useGetSimulationResults from '../../hooks/useGetSimulationResults'
 import { cn } from '@/app/(shared)/utils'
+import useGetSimulationResults from '../../hooks/useGetSimulationResults'
+import CompletedTimeCard from '../cards/CompletedTimeCard'
+import OverallScoreCard from '../cards/OverallScoreCard'
+import ServiceDescriptionCard from '../cards/ServiceDescriptionCard'
+import SoftSkillsCard from '../cards/SoftSkillsCard'
 
 function ServiceDetailsTab() {
   const { details } = useGetSimulationResults()
+
   return (
     <div>
       <Card className='p-6'>
-        <h1 className='text-lg font-bold'>Transcript Summary</h1>
+        <h1 className='text-lg font-semibold'>Transcript Summary</h1>
         {details?.transcriptSummary ? (
           <p className='text-sm text-neutral-gray-600 mt-4'>
             {details?.transcriptSummary}

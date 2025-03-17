@@ -69,7 +69,7 @@ function MoreOptionMenu() {
             className='w-full justify-start rounded-none text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600'
             onClick={handleShowEditModal}
           >
-            Edit service
+            Edit Service
           </Button>
           <DeleteServiceModal setDropdownOpen={setDropdownOpen} />
         </DropdownMenuContent>

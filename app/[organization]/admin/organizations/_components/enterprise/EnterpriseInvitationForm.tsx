@@ -161,7 +161,7 @@ function EnterpriseInvitationForm(props: { onSubmitSuccess?: () => void }) {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Admin Email</FormLabel>
+              <FormLabel>Owner Email</FormLabel>
               <FormControl>
                 <Input
                   {...field}

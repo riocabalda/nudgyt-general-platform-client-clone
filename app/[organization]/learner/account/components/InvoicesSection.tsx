@@ -119,7 +119,7 @@ function SeeAllLink() {
       variant='link'
       className={cn(
         'no-underline p-0 lg:p-0 h-auto',
-        'text-primary-500 space-x-2 cursor-not-allowed'
+        'text-brandcolora space-x-2 cursor-not-allowed'
       )}
     >
       <span>See All</span> <ArrowRight className='size-4' />

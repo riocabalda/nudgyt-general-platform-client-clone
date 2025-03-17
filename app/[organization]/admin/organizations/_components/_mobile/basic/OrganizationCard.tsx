@@ -1,4 +1,4 @@
-import { OrganizationIndicatorColor } from '@/app/(shared)/(users)/indicator-color'
+import { OrganizationStatusIndicator } from '@/app/(shared)/(users)/StatusIndicator'
 import { Card } from '@/app/(shared)/components/ui/card'
 import { Checkbox } from '@/app/(shared)/components/ui/checkbox'
 import useOrganization from '@/app/(shared)/hooks/useOrganization'
@@ -19,7 +19,6 @@ function OrganizationCard(props: { organization: OrganizationUser }) {
   const selectedUser = selectedOrganizations.some(
     (r) => r._id === organization._id
   )
-  const bgColor = OrganizationIndicatorColor[organization.status]
 
   function goToOrganizationPage() {
     const params = new URLSearchParams({
@@ -68,10 +67,7 @@ function OrganizationCard(props: { organization: OrganizationUser }) {
           {organization.members} members
         </p>
         <div className='flex items-center gap-2'>
-          <span
-            className='block w-[10px] h-[10px] rounded-full bg-brandcolora'
-            style={{ backgroundColor: bgColor }}
-          />
+          <OrganizationStatusIndicator status={organization.status} />
           <p className='text-sm'>{organization.status}</p>
         </div>
       </div>

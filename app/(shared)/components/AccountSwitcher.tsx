@@ -57,7 +57,7 @@ function AccountSwitcherAvatar(props: {
           type === 'regular' && 'text-lg',
           type === 'compact' && 'text-[10px]',
           'text-white',
-          role === roles.learner ? 'bg-[#F3706F]' : 'bg-primary-500'
+          role === roles.learner ? 'bg-[#F3706F]' : 'bg-brandcolora'
         )}
       >
         {generateAvatarInitials(fallbackBaseText)}

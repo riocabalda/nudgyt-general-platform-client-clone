@@ -1,7 +1,7 @@
-import { roles } from '@/app/(shared)/services/userService'
 import MainContainer from '@/app/(shared)/components/MainContainer'
 import ResultContainer from '@/app/(shared)/components/admin-trainer-learner-shared/simulations/components/ResultContainer'
 import RequireAuth from '@/app/(shared)/components/helper/RequireAuth'
+import { roles } from '@/app/(shared)/services/userService'
 import './style.css'
 
 function SimulationResultsPage() {
@@ -12,7 +12,7 @@ function SimulationResultsPage() {
         headerDesktop={
           <MainContainer.HeaderDesktop title='Service Results' showBackBtn />
         }
-        className='lg:container pb-20 lg:p-0'
+        className='pb-20 lg:p-0'
       >
         <ResultContainer />
       </MainContainer>

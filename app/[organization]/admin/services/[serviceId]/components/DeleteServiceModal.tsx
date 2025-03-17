@@ -54,13 +54,13 @@ function DeleteServiceModal({
           variant='ghost'
           className='justify-start rounded-none text-left text-sm font-normal !px-3 h-fit py-2'
         >
-          Delete service
+          Delete Service
         </Button>
       </DialogTrigger>
       <DialogContent className='!rounded-[8px] lg:p-6 w-full max-w-[90%] lg:max-w-[600px] gap-0'>
         <DialogHeader>
           <DialogTitle className='text-left text-[20px] font-semibold lg:text-2xl text-foreground'>
-            Delete service
+            Delete Service
           </DialogTitle>
           <DialogDescription className='text-left lg:text-base text-neutral-gray-600 !mt-6'>
             Are you sure you want to delete this service?

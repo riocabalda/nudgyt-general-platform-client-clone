@@ -92,7 +92,7 @@ function PersonalDetailsForm() {
 
       <Button
         type='submit'
-        className='mt-[24px] w-full lg:w-max float-end bg-primary-500 hover:bg-primary-500/90'
+        className='mt-[24px] w-full lg:w-max float-end'
         disabled={!isDirty || isSubmitting}
       >
         {isSubmitting ? (

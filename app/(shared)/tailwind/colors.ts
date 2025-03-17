@@ -50,6 +50,31 @@ const colors = {
     600: '#727679',
     800: '#393C3F'
   },
+
+  tier: {
+    bronze: {
+      from: '#DE9D62',
+      to: '#9A4202'
+    },
+    silver: {
+      from: '#ADB5BD',
+      to: '#6C757D'
+    },
+    gold: {
+      from: '#FFD700',
+      to: '#DAA520'
+    }
+  },
+
+  status: {
+    approved: '#80D1AC',
+    verified: '#5E7AAD',
+    unverified: '#CBCDD0',
+    archived: '#EE2F56',
+    blocked: '#393C3F'
+  },
+
+  /** Should remove the colors below(?) */
   primary: {
     100: '#EADEFF',
     500: '#5C05F2'
@@ -75,20 +100,6 @@ const colors = {
     lighter: '#3BD1DA',
     base: '#0095A9', // Same as teal-500 above, but this might be better to avoid overriding Tailwind's default
     darkest: '#0E5B6B'
-  },
-  tier: {
-    bronze: {
-      from: '#DE9D62',
-      to: '#9A4202'
-    },
-    silver: {
-      from: '#ADB5BD',
-      to: '#6C757D'
-    },
-    gold: {
-      from: '#FFD700',
-      to: '#DAA520'
-    }
   }
 }
 

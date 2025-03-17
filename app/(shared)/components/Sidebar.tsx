@@ -49,6 +49,11 @@ const ADMIN_NAVIGATION_DATA = (
       icon: <BookCopy className='size-5 text-brandcolora' />
     },
     {
+      label: 'Characters',
+      pathname: encodeURI(`/${orgSlug}/admin/characters`),
+      icon: <UserSquare className='size-5 text-brandcolora' />
+    },
+    {
       label: 'Users',
       pathname: encodeURI(`/${orgSlug}/admin/users`),
       icon: <Users className='size-5 text-brandcolora' />
@@ -57,11 +62,6 @@ const ADMIN_NAVIGATION_DATA = (
       label: 'Organizations',
       pathname: encodeURI(`/${orgSlug}/admin/organizations`),
       icon: <Building2 className='size-5 text-brandcolora' />
-    },
-    {
-      label: 'Characters',
-      pathname: encodeURI(`/${orgSlug}/admin/characters`),
-      icon: <UserSquare className='size-5 text-brandcolora' />
     },
     // {
     //   label: 'Subscriptions',

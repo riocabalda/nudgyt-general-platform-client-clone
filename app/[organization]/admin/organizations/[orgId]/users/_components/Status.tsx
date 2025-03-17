@@ -1,4 +1,4 @@
-import { UserIndicatorColor } from '@/app/(shared)/(users)/indicator-color'
+import { UserStatusIndicator } from '@/app/(shared)/(users)/StatusIndicator'
 import { PaginatedUser } from '@/app/(shared)/services/admin/userService'
 import {
   invitationStatus,
@@ -48,16 +48,12 @@ function Status(props: {
   const { isForUserDetail } = props
 
   const status = getStatus(user, orgMembership)
-  const bgColor = UserIndicatorColor[status]
 
   return (
     <div
       className={`flex items-center gap-[10px]  ${isForUserDetail && 'border-[1px] border-neutral-400 rounded-[4px] px-[10px] py-[13px] lg:border-none lg:p-0'}`}
     >
-      <span
-        className='h-[10px] w-[10px] rounded-full block'
-        style={{ backgroundColor: bgColor }}
-      ></span>
+      <UserStatusIndicator status={status} />
       <StatusMenu
         user={user}
         status={status}

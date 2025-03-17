@@ -54,7 +54,7 @@ function UnpublishServiceModal() {
     serviceData &&
     !!serviceData.service_type &&
     (isBasicServiceLevel
-      ? !!serviceData?.basic_level.characters &&
+      ? !!serviceData?.basic_level.characters.length &&
         !!serviceData?.basic_level.environment &&
         !!serviceData?.basic_level.title &&
         !!serviceData?.basic_level.description

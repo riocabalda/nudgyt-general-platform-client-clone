@@ -38,9 +38,7 @@ function UpgradeSuccessContent(props: { body: ReactNode }) {
 
       <DialogFooter className='grid lg:grid-cols-2 gap-6'>
         <DialogClose asChild>
-          <Button className='lg:col-start-2 bg-primary-500 hover:bg-primary-500/90'>
-            Get started
-          </Button>
+          <Button className='lg:col-start-2'>Get started</Button>
         </DialogClose>
       </DialogFooter>
     </div>
@@ -72,12 +70,7 @@ function UpgradePromptContent(props: {
           <Button variant='outline'>Go back</Button>
         </DialogClose>
 
-        <Button
-          onClick={proceedToPayment}
-          className='bg-primary-500 hover:bg-primary-500/90'
-        >
-          Proceed to payment
-        </Button>
+        <Button onClick={proceedToPayment}>Proceed to payment</Button>
       </DialogFooter>
     </div>
   )

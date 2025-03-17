@@ -73,11 +73,7 @@ function DeclineInvitationModal(props: { membership: OrganizationMembership }) {
             <Button variant='outline'>Go back</Button>
           </DialogClose>
 
-          <Button
-            disabled={isSubmitting}
-            onClick={decline}
-            className='w-full bg-primary-500 hover:bg-primary-500/90'
-          >
+          <Button disabled={isSubmitting} onClick={decline} className='w-full'>
             {isSubmitting ? (
               <>
                 <Loader className='w-4 h-4 mr-2 animate-spin' />
@@ -140,7 +136,7 @@ function MembershipInvitationCard(props: {
   }
 
   return (
-    <Card className='mx-4 lg:mx-0 rounded-[8px] px-6 py-10 lg:px-20 space-y-6 border-2 border-primary-500'>
+    <Card className='mx-4 lg:mx-0 rounded-[8px] px-6 py-10 lg:px-20 space-y-6 border-2 border-brandcolora'>
       <h3 className='text-center text-neutral-gray-800 font-semibold text-2xl'>
         You&rsquo;ve been invited to join {newOrgName}
       </h3>
@@ -157,7 +153,7 @@ function MembershipInvitationCard(props: {
         <Button
           onClick={acceptInvitation}
           disabled={isSubmitting}
-          className='w-full bg-primary-500 hover:bg-primary-500/90'
+          className='w-full'
         >
           {isSubmitting ? (
             <>

@@ -31,6 +31,7 @@ import characterService, {
 import PreviewVoice from '@/app/(shared)/components/PreviewVoice'
 import avatarService from '@/app/(shared)/services/trainer/avatarService'
 import { useGetEnvironmentById } from '../../create/hooks/useGetEnvironmentById'
+import { DEFAULT_VOICE_TYPES } from '@/app/(shared)/constants/defaultVoiceTypes'
 
 const Avatars = () => {
   const { orgSlug } = useOrganization()
@@ -96,16 +97,22 @@ const Avatars = () => {
       ?.gender.toUpperCase()
 
     const voiceTypesOptions = voiceTypes?.data?.filter(
-      (voice: any) => voice.gender === currentAvatarGender
+      (voice: any) =>
+        voice.gender.toUpperCase() === currentAvatarGender?.toUpperCase()
     )
 
-    if (voiceTypesOptions?.length === 1) {
-      setVoiceType(voiceTypesOptions[0].voice_value)
-    }
-
-    const filteredVoiceTypes = voiceTypesOptions?.filter((voice: VoiceType) =>
+    let filteredVoiceTypes = voiceTypesOptions?.filter((voice: VoiceType) =>
       languages?.some((lang) => voice.lang_codes.includes(lang.value))
     )
+
+    if (filteredVoiceTypes?.length === 0 && languages && languages.length > 0) {
+      filteredVoiceTypes = DEFAULT_VOICE_TYPES.filter(
+        (voice) =>
+          voice.gender.toUpperCase() === currentAvatarGender?.toUpperCase()
+      )
+      setVoiceType(filteredVoiceTypes[0].voice_value)
+      setPreviewVoice(filteredVoiceTypes[0].sample_link)
+    }
 
     return filteredVoiceTypes
   }, [voiceTypes, avatarData, avatarId, languages])
@@ -116,6 +123,7 @@ const Avatars = () => {
 
   const handleLanguageChange = (newValue: MultiValue<OptionType>) => {
     setLanguages(newValue as unknown as LanguageType[])
+    setVoiceType('')
   }
 
   const handleVoiceChange = (newValue: string) => {
@@ -219,7 +227,7 @@ const Avatars = () => {
               </SelectGroup>
             </SelectContent>
           </Select>
-          {previewVoice && (
+          {previewVoice && voiceType && (
             <div className='grid place-items-end mt-1'>
               <PreviewVoice path={previewVoice} />
             </div>

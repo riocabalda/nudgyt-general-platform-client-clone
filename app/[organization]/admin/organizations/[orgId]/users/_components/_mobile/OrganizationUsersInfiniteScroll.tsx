@@ -13,6 +13,7 @@ import { useUserStore } from '@/app/(shared)/hooks/useUsersStore'
 import { useIntersectionObserver } from 'usehooks-ts'
 import useGetOrganizationUsersInfinite from '../../_hooks/useGetOrganizationUsersInfinite'
 import useOrganizationName from '../../_hooks/useOrganizationName'
+import usePageParams from '../../_hooks/usePageParams'
 
 function OrganizationUsersEnd() {
   const {
@@ -46,6 +47,7 @@ function OrganizationUsersEnd() {
 }
 
 function OrganizationUsersInfiniteScroll() {
+  const { viewedOrgSlug } = usePageParams()
   const orgName = useOrganizationName()
 
   const {
@@ -82,7 +84,9 @@ function OrganizationUsersInfiniteScroll() {
         </div>
         <div className='flex flex-col gap-4 px-4 py-6'>
           {usersData && usersData?.length ? (
-            usersData.map((user) => <UserCard key={user._id} user={user} />)
+            usersData.map((user) => (
+              <UserCard key={user._id} user={user} orgSlug={viewedOrgSlug} />
+            ))
           ) : (
             <p className='text-center text-foreground'>No data found.</p>
           )}

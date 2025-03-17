@@ -1,14 +1,13 @@
 'use client'
-import Image from 'next/image'
-import { ChevronLeft, ChevronRight, Languages } from 'lucide-react'
-import useGetSimulationResults from '../hooks/useGetSimulationResults'
-import ReactQuill from 'react-quill'
+import { CharacterType } from '@/app/(shared)/types'
 import DOMPurify from 'dompurify'
-import { UserRound } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Languages, UserRound } from 'lucide-react'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import ReactQuill from 'react-quill'
 import PreviewVoice from '../../../PreviewVoice'
 import { Button } from '../../../ui/button'
-import { useState, useEffect } from 'react'
-import { CharacterType } from '@/app/(shared)/types'
+import useGetSimulationResults from '../hooks/useGetSimulationResults'
 
 function CharactersList() {
   const { details, voiceTypes } = useGetSimulationResults()
@@ -47,7 +46,7 @@ function CharactersList() {
       {characters.length > 0 && currentCharacter ? (
         <div className='flex flex-col gap-6'>
           <div className='flex items-center justify-between'>
-            <h1 className='text-lg font-semibold'>{`Character${characters.length > 1 ? 's' : ''}`}</h1>
+            <h4 className='text-lg font-semibold'>{`Character${characters.length > 1 ? 's' : ''}`}</h4>
             {characters.length > 1 && (
               <div className='flex items-center gap-6'>
                 <span className='text-sm'>

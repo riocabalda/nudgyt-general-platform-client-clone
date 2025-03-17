@@ -21,7 +21,7 @@ function NotificationMark() {
     <div
       className={cn(
         'select-none',
-        'w-7 h-5 rounded-[100px] bg-primary-500',
+        'w-7 h-5 rounded-[100px] bg-brandcolora',
         'text-xs text-white font-semibold',
         'grid place-items-center'
       )}

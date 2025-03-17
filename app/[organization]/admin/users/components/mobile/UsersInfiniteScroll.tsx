@@ -117,7 +117,9 @@ function UsersInfiniteScroll() {
         </div>
         <div className='flex flex-col gap-4 px-4 py-6'>
           {usersData && usersData?.length ? (
-            usersData.map((user) => <UserCard key={user._id} user={user} />)
+            usersData.map((user) => (
+              <UserCard key={user._id} user={user} orgSlug={orgSlug} />
+            ))
           ) : (
             <p className='text-center text-foreground'>No data found.</p>
           )}

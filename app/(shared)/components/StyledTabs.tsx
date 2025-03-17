@@ -19,7 +19,11 @@ function ExtendedWidthLine() {
 
 export function StyledTabs(
   props: ComponentProps<typeof Tabs> & {
-    children?: ReactElement<ComponentProps<typeof StyledTabItem>>[]
+    children?: (
+      | ReactElement<ComponentProps<typeof StyledTabItem>>
+      | false
+      | null
+    )[]
   }
 ) {
   const { className, children = [], ...tabsProps } = props
@@ -28,9 +32,15 @@ export function StyledTabs(
     return null
   }
 
+  const validChildren = children.filter(
+    (child): child is ReactElement<ComponentProps<typeof StyledTabItem>> =>
+      Boolean(child)
+  )
+
   return (
     <Tabs
       {...tabsProps}
+      defaultValue={validChildren[0]?.props?.value}
       className={cn(
         'w-full min-h-[50vh]',
         'lg:container !px-0 lg:!px-10',
@@ -43,7 +53,7 @@ export function StyledTabs(
           'w-full overflow-x-auto h-14 overflow-y-hidden rounded-none p-0 bg-transparent'
         )}
       >
-        {children.map((child) => (
+        {validChildren.map((child) => (
           <TabsTrigger
             key={child.props.value}
             value={child.props.value}
@@ -85,11 +95,7 @@ export function StyledTabItem(
   const { children, className } = props
 
   return (
-    <TabsContent
-      key={value}
-      value={value}
-      className={cn('m-0 lg:pt-8', className)}
-    >
+    <TabsContent key={value} value={value} className={cn('m-0', className)}>
       {children}
     </TabsContent>
   )

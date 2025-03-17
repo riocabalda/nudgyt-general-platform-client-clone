@@ -14,7 +14,7 @@ import { DialogDescription } from '@radix-ui/react-dialog'
 import { useParams, useRouter } from 'next/navigation'
 import useOrganization from '@/app/(shared)/hooks/useOrganization'
 import templateService from '@/app/(shared)/services/admin/templateService'
-
+import useGetTemplate from '../hooks/useGetTemplate'
 function DeleteTemplateModal({
   setDropdownOpen
 }: {
@@ -28,6 +28,8 @@ function DeleteTemplateModal({
   const { orgSlug } = useOrganization()
 
   const router = useRouter()
+
+  const { data: templateData } = useGetTemplate(orgSlug, String(templateId))
 
   const handleDeleteTemplate = async () => {
     setIsSubmitting(true)
@@ -48,20 +50,21 @@ function DeleteTemplateModal({
       <DialogTrigger className='hidden lg:block' asChild>
         <Button
           variant='ghost'
-          className='w-full text-left text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600 disabled:cursor-not-allowed'
+          className='w-full text-left text-sm font-normal !px-3 h-fit py-2 disabled:bg-white disabled:text-neutral-gray-600 disabled:cursor-not-allowed rounded-none'
+          disabled={templateData?.data.is_published}
         >
-          Delete template
+          Delete Template
         </Button>
       </DialogTrigger>
       <DialogTrigger className='lg:hidden' asChild>
         <Button variant='destructive' className=' w-full text-base font-medium'>
-          Delete template
+          Delete Template
         </Button>
       </DialogTrigger>
       <DialogContent className='!rounded-[8px] lg:p-6 w-full max-w-[90%] lg:max-w-[600px] gap-0'>
         <DialogHeader>
           <DialogTitle className='text-left text-[20px] font-semibold lg:text-2xl text-foreground'>
-            Delete template
+            Delete Template
           </DialogTitle>
           <DialogDescription className='text-left lg:text-base text-neutral-gray-600 !mt-6'>
             Are you sure you want to delete this template?
